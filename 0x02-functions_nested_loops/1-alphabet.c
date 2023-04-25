@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point,
- *
+ *@ch: character to be checked,
  * print_alphabet: void
  */
 void print_alphabet(void)
