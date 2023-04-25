@@ -2,11 +2,11 @@
 
 
 /**
- * main - Entry Point
+ *main - Entry Point
  *
- *Return - Always (0)
- */
-int main(void)
+ *return - Always (0)
+ **/
+int main()
 {
 _putchar('_');
 _putchar('p');
@@ -16,6 +16,6 @@ _putchar('c');
 _putchar('h');
 _putchar('a');
 _putchar('r');
-_putchar('\n');
+_putchar ('\n');
 return(0);
 }
