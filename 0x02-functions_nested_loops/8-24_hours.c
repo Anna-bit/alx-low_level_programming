@@ -2,10 +2,10 @@
 
 
 /**
-*main - Entry point,
+*jack_bauer - Entry point,
 * 
 */
-void main(void)
+void jack_bauer(void)
 {
 int a,b;
 
