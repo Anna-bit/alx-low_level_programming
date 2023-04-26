@@ -1,18 +1,28 @@
 #include "main.h"
-	
-/**
- * main - Entry point,
- *
- * Return: Always 0 success.
- */
-int main(void)		
-{	
-int i;
 
-print_last_digit(98);
-print_last_digit(0);
-i = print_last_digit(-1024);
-_putchar(i + '0');
+
+/**
+*main - Entry point,
+* 
+*/
+void main(void)
+{
+int a,b;
+
+a = 0;
+while (a < 24)
+{
+b = 0;
+while (b < 60)
+{
+_putchar((a / 10) + '0');
+_putchar((a % 10) + '0');
+_putchar(':');
+_putchar((b / 10) + '0');
+_putchar((b % 10) + '0');
 _putchar('\n');
-return (0);
+b++;
+}
+a++;
+}
 }
