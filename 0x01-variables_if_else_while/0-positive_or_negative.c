@@ -3,28 +3,28 @@
 #include <stdio.h>
 /**
 *main - Entry point,
-* 
+*
 * Return: Always 0 success
 */
 
 int main(void)
-{      
+{
 int n;
-        
+
 srand(time(0));
 n = rand() - RAND_MAX / 2;
-	
+
 if (n > 0)
 {
-printf("is positive");
+printf("%d is positive");
 }
 else if (n == 0)
 {
-printf("is zero");
+printf("%d is zero");
 }
-else 
+else
 {
-printf("is negative");
+printf("%d is negative");
 }
 putchar('\n');
 return (0);
