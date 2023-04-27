@@ -11,12 +11,12 @@ int b;
 c = 'a';
 b = 0;
 while
-(b < 10) 
+(b < 10)
 {
 putchar(b + '0');
 b++;
 }
-while (c <= 'f') 
+while (c <= 'f')
 {
 putchar(c);
 c++;
