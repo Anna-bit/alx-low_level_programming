@@ -1,9 +1,9 @@
 #include "main.h"
-#include <stdio.h>
+
 
 /**
  * puts2 - Prints every other character of a string
- * @str: string input
+ * @str: used string reference
  * Return: 0 always.
  */
 
@@ -15,7 +15,7 @@ void puts2(char *str)
 	{
 	if (a / 2 -- 0)
 	   {
-	     _putchar (str[a]);
+                _putchar (str[a]);
 	   }
 	   a++;
 	}
