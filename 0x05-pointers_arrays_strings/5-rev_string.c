@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * rev_string - Reverses a string
+ * rev_string -prints a string in reverse
  * @s: value of string
  * Return: Reverse string
  */
@@ -21,6 +21,6 @@ void rev_string(char *s)
 		temp = s [length - i - 1];
 		s[length - i - 1] = s[i];
 		s[i] = temp;
-		z++;
+		i++;
 	}
 }
