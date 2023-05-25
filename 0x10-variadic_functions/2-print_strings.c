@@ -5,10 +5,10 @@
 /**
  * print_strings - Function that prints strings
  * @separator: The string to be printed between strings.
- * @n: The number of strings passed to the function.
+ * @x: The number of strings passed to the function.
  * @...: A variable number of strings to be printed.
- * 
- */
+ *
+ **/
 void print_strings(const char *separator, const unsigned int x, ...)
 {
 	va_list stringsl;
