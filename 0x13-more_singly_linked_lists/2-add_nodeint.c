@@ -20,3 +20,4 @@ x->next = *head;
 *head = x;
 
 return (x);
+}
