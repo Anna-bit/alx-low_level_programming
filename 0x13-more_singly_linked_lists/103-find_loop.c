@@ -16,7 +16,7 @@ if (!head)
 return (NULL);
 while (start && end && end->next)
 {
-start = end->next->next;
+end = end->next->next;
 start = start->next;
 if (end == start)
 {
