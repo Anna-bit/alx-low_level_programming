@@ -17,11 +17,11 @@ void print_binary(unsigned long int n)
 		if (value & 1)
 		{
 			_putchar('1');
-			value++;
+			count++;
 		}
-		else if (value)
+		else if (count)
 			_putchar('0');
 	}
-	if (!value)
+	if (!count)
 		_putchar('0');
 }
