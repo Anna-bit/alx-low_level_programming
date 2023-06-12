@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *new_file(char *fileinput);
+char *new_file(char *file);
 void close_file(int data);
 
 /**
  * new_file - Copies 1024 bytes.
- * @fileinput: name of the file
+ * @file: name of the file
  *
- * Return: A pointer to the new created buffer.
+ * Return: A pointer to new file.
  */
-char *new_file(char *fileinput)
+char *new_file(char *file)
 {
 	char *fileinput;
 
@@ -20,7 +20,7 @@ char *new_file(char *fileinput)
 	if (fileinput == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", fileinput);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
