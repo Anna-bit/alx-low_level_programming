@@ -56,7 +56,7 @@ void close_file(int dt)
 int main(int argc, char *argv[])
 {
 	int fl_from, fl_to, z, x;
-	char *buffe;
+	char *fileinput;
 
 	if (argc != 3)
 	{
@@ -64,9 +64,9 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffe = create_buffer(argv[2]);
+	fileinput = create_fileinput(argv[2]);
 	fl_from = open(argv[1], O_RDONLY);
-	z = read(fl_from, buffe, 1024);
+	z = read(fl_from, fileinput, 1024);
 	fl_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
@@ -74,25 +74,25 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-			free(buffe);
+			free(fileinput);
 			exit(98);
 		}
 
-		x = write(fl_to, buffe, z);
+		x = write(fl_to, fileinput, z);
 		if (fl_to == -1 || x == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(buffe);
+			free(fileinput);
 			exit(99);
 		}
 
-z = read(fl_from, buffe, 1024);
+z = read(fl_from, fileinput, 1024);
 fl_to = open(argv[2], O_WRONLY | O_APPEND);
 
 } while (z > 0);
 
-free(buffe);
+free(fileinput);
 close_file(fl_from);
 close_file(fl_to);
 
