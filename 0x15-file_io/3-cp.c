@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *new_file(char *file);
-void close_file(int data);
+char *create_fileinput(char *file);
+void close_file(int dt);
 
 /**
- * new_file - Copies 1024 bytes.
+ * create_fileinput - Copies 1024 bytes.
  * @file: name of the file
  *
  * Return: A pointer to new file.
  */
-char *new_file(char *file)
+char *create_fileinput(char *file)
 {
 	char *fileinput;
 
