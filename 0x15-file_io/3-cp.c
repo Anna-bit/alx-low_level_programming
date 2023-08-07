@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	flinput = create_flinput(argv[2]);
+	flinput = create_fileinput(argv[2]);
 	fl_from = open(argv[1], O_RDONLY);
 	z = read(fl_from, flinput, 1024);
 	fl_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -48,8 +48,10 @@ z = read(fl_from, flinput, 1024);
 fl_to = open(argv[2], O_WRONLY | O_APPEND);
 
 } while (z > 0);
+
 free(flinput);
 close_file(fl_from);
 close_file(fl_to);
+
 return (0);
 }
