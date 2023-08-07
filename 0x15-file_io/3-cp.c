@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - Funct that copies contents of a file to another file.
+ * main - Copies contents of a file to another file.
  * @argc: number of arguments
  * @argv: arguments vector.
  *
@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int fl_from, fl_to, z, x;
-	char *fileinput;
+	char *flinput;
 
 	if (argc != 3)
 	{
@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	fileinput = create_fileinput(argv[2]);
+	flinput = create_flinput(argv[2]);
 	fl_from = open(argv[1], O_RDONLY);
-	z = read(fl_from, fileinput, 1024);
+	z = read(fl_from, flinput, 1024);
 	fl_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
@@ -30,27 +30,25 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-			free(fileinput);
+			free(flinput);
 			exit(98);
 		}
 
-		x = write(fl_to, fileinput, z);
+		x = write(fl_to, flinput, z);
 		if (fl_to == -1 || x == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(fileinput);
+			free(flinput);
 			exit(99);
 		}
 
-z = read(fl_from, fileinput, 1024);
+z = read(fl_from, flinput, 1024);
 fl_to = open(argv[2], O_WRONLY | O_APPEND);
 
 } while (z > 0);
-
-free(fileinput);
+free(flinput);
 close_file(fl_from);
 close_file(fl_to);
-
 return (0);
 }

@@ -17,6 +17,18 @@ void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
+check_elf(header->e_ident);
+printf("ELF Header:\n");
+print_magic(header->e_ident);
+print_data(header->e_ident);
+print_class(header->e_ident);
+print_osabi(header->e_ident);
+print_version(header->e_ident);
+print_abi(header->e_ident);
+print_type(header->e_type, header->e_ident);
+print_entry(header->e_entry, header->e_ident);
+
+
 /**
  * check_elf - Function that checks if a file is an ELF file.
  * @e_ident: pointer to an array containing the ELF nos.
@@ -182,8 +194,8 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf(" ABI Version: %d\n",
-		e_ident[EI_ABIVERSION]);
+printf(" ABI Version: %d\n",
+e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -191,7 +203,6 @@ void print_abi(unsigned char *e_ident)
  * @e_type: ELF type.
  * @e_ident: Pointer to array.
  */
-
 void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
@@ -226,7 +237,6 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
  * @e_entry: pointer to address of entry point.
  * @e_ident: pointer to an array of the class.
  */
-
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf(" Entry point address: ");
@@ -251,15 +261,14 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
  *
  * Description: Print exit code 98 if file cannot be closed.
  */
-
 void close_elf(int elf)
 {
-	if (close(elf) == -1)
-	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %d\n", elf);
-		exit(98);
-	}
+if (close(elf) == -1)
+{
+dprintf(STDERR_FILENO,
+"Error: Can't close fd %d\n", elf);
+exit(98);
+}
 }
 
 /**
@@ -299,16 +308,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	check_elf(header->e_ident);
-	printf("ELF Header:\n");
-	print_magic(header->e_ident);
-	print_data(header->e_ident);
-	print_class(header->e_ident);
-	print_osabi(header->e_ident);
-	print_version(header->e_ident);
-	print_abi(header->e_ident);
-	print_type(header->e_type, header->e_ident);
-	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
 	close_elf(x);
